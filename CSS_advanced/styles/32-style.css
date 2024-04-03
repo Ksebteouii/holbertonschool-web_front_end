@@ -1,0 +1,602 @@
+
+/** @format */
+
+:root {
+	/* Primary color for the theme */
+	--color-primary: #d73953;
+	/* Black color for text and backgrounds */
+	--color-black: #090909;
+	/* White color for text and backgrounds */
+	--color-white: #ffffff;
+	/* Light grey color for backgrounds and borders */
+	--color-light-grey: #f3f3f3;
+	/* Dark grey color for text and backgrounds */
+	--color-dark-grey: #353535;
+	/* Default text color */
+	--text-color: var(--color-black);
+	/* Base font family for the body text */
+	--font-family-base: "Open Sans", "Helvetica Neue", Helvetica, Arial,
+		sans-serif;
+	/* Font family for titles and headings */
+	--font-family-title: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	/* Font sizes for different text elements */
+	--font-size-small: 1.2rem;
+	--font-size-medium: 1.6rem;
+	--font-size-large: 1.8rem;
+	--font-size-x-large: 2.3rem;
+	--font-size-xx-large: 4.8rem;
+	/* Font weights for regular and bold text */
+	--font-weight-regular: 400;
+	--font-weight-bold: 700;
+	/* Line heights for different text elements */
+	--line-height-small: 1.2;
+	--line-height-base: 1.5;
+	--line-height-big: 1.8;
+	/* Alignment and text transformation for section headers */
+	--section-header-align: center;
+	--section-tagline-transform: uppercase;
+	/* Margins and padding for section titles */
+	--section-title-margin: 0;
+	--section-title-color: var(--color-black);
+	/* Padding for sections */
+	--section-padding: 5rem 0;
+	--section-header-padding: 0 0 3rem;
+	--section-body-padding: 0 0 3rem;
+	--section-footer-padding: 3rem 0 0;
+	/* Alignment for section footers */
+	--section-footer-align: center;
+	/* Padding for the footer */
+	--footer-padding: 5rem 0 1rem;
+	/* Font properties for navigation items */
+	--nav-item-font-family: var(--font-family-title);
+	--nav-item-font-weight: var(--font-weight-bold);
+	--nav-item-font-size: var(--font-size-medium);
+	--nav-item-letter-spacing: 0.04rem;
+	--nav-item-display: inline-block;
+	--nav-item-margin: 0 0 3rem 0;
+	/* Hover color for navigation item links */
+	--nav-item-link-hover: var(--color-white);
+	/* Margin for section taglines */
+	--section-tagline-margin: 0;
+	/* Display and padding for buttons */
+	--button-display: inline-block;
+	--button-padding: 1.5rem 3rem;
+	/* Border and color for buttons */
+	--button-border: 0.2rem solid var(--color-primary);
+	--button-color: var(--color-black);
+	/* Text decoration for buttons */
+	--button-text-decoration: none;
+	/* Font size for button text */
+	--button-font-size: var(--font-size-large);
+	/* Hover color and background for buttons */
+	--button-hover-color: var(--color-white);
+	--button-hover-text-decoration: none;
+	--button-hover-background: var(--color-primary);
+	/* Padding for the header */
+	--header-padding: 4rem 0 0;
+	/* Positioning for the header logo */
+	--header-logo-position: relative;
+	--header-logo-link-display: inline-block;
+	--header-logo-link-position: absolute;
+	--header-logo-link-top: -1rem;
+	--header-logo-link-left: 0;
+	/* Duration and easing for transitions */
+	--transition-duration: 0.3s;
+	--transition-cubic-bezier: cubic-bezier(0.17, 0.67, 0, 1.01);
+}
+
+*,
+*:before,
+*:after {
+	/* Ensures consistent box model */
+	box-sizing: border-box;
+}
+
+[data-section-theme="dark"] {
+	/* Background color for dark theme */
+	background: var(--color-black);
+	/* Text color for dark theme */
+	--text-color: var(--color-white);
+	/* Section title color for dark theme */
+	--section-title-color: var(--color-white);
+	/* Button color for dark theme */
+	--button-color: var(--color-white);
+}
+html {
+	/* Smooth scrolling for anchor links */
+	scroll-behavior: smooth;
+	/* Base font size for rem calculations */
+	font-size: 62.5%;
+}
+
+body {
+	/* Base font family, color, size, weight, and line height */
+	font-family: var(--font-family-base);
+	color: #161616;
+	font-size: var(--font-size-medium);
+	font-weight: var(--font-weight-regular);
+	line-height: var(--line-height-base);
+}
+a:link {
+	/* Color and text decoration for unvisited links */
+	color: #161616;
+	text-decoration-line: none;
+}
+
+a:visited {
+	/* Style for visited links */
+	font-style: italic;
+}
+a:hover {
+	/* Style for hovered links */
+	text-decoration: underline;
+}
+a:active {
+	/* Background color for active links */
+	background-color: var(--color-light-grey);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	/* Font family and weight for headings */
+	font-family: var(--font-family-title);
+	font-weight: var(--font-weight-bold);
+}
+
+.visually-hidden {
+	/* Hides elements visually but keeps them accessible to screen readers */
+	display: none;
+}
+.card-category {
+	/* Color for category text */
+	color: var(--color-primary);
+}
+.section-tagline {
+	/* Color, font family, text transformation, weight, and margin for section taglines */
+	color: var(--color-primary);
+	font-family: var(--font-family-title);
+	text-transform: var(--section-tagline-transform);
+	font-weight: var(--font-weight-bold);
+	margin: var(--section-tagline-margin);
+}
+.container {
+	/* Width and centering for the main container */
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.section-title {
+	/* Font family, size, weight, margin, and color for section titles */
+	font-family: var(--font-family-title);
+	font-size: var(--font-size-xx-large);
+	font-weight: var(--font-weight-bold);
+	margin: var(--section-title-margin);
+	color: var(--section-title-color);
+}
+.section {
+	/* Padding for sections */
+	padding: var(--section-padding);
+}
+.section-header {
+	/* Padding and alignment for section headers */
+	padding: var(--section-header-padding);
+	text-align: var(--section-header-align);
+}
+.section-body {
+	/* Padding for section bodies */
+	padding: var(--section-body-padding);
+}
+.section-footer {
+	/* Padding and alignment for section footers */
+	padding: var(--section-footer-padding);
+	text-align: var(--section-footer-align);
+}
+.footer {
+	/* Padding for the footer */
+	padding: var(--footer-padding);
+}
+.navbar-menu {
+	/* Alignment for the navigation menu */
+	float: right;
+}
+.nav {
+	/* Reset for the navigation list */
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+}
+.nav .nav-item {
+	/* Font properties for navigation items */
+	font-family: var(--nav-item-font-family);
+	font-weight: var(--nav-item-font-weight);
+	font-size: var(--nav-item-font-size);
+	letter-spacing: var(--nav-item-letter-spacing);
+	display: var(--nav-item-display);
+	margin: var(--nav-item-margin);
+}
+.nav .nav-link {
+	/* Display and padding for navigation links */
+	display: block;
+	padding: 0.5rem 1rem;
+}
+.nav .nav-link:hover {
+	/* Hover color for navigation links */
+	color: var(--nav-item-link-hover);
+}
+.nav .nav-link::before {
+	/* Pseudo-element for navigation link hover effect */
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: var(--color-white);
+	width: 0;
+	height: 0.2rem;
+	transition: var(--transition-duration) var(--transition-cubic-bezier);
+}
+.nav .nav-item:hover .nav-link::before {
+	/* Expand pseudo-element on hover */
+	background-color: var(--color-primary);
+	width: 100%;
+}
+ul.row {
+	/* Reset for row lists */
+	margin: 0;
+
+	padding: 0;
+	list-style-type: none;
+}
+.col-1-3 {
+	/* Width for a third of the container */
+	width: 33.33%;
+}
+.col-1-2 {
+	/* Width for half of the container */
+	width: 50%;
+}
+[class^="col-"] {
+	/* Floats and padding for column classes */
+	float: left;
+	padding: 0.5rem;
+}
+.footer-copyright {
+	/* Reset for footer copyright text */
+	margin: 0;
+	font-size: var(--font-size-small);
+	color: var(--text-color);
+}
+.footer ul {
+	/* Alignment for footer lists */
+	text-align: right;
+}
+.row::after {
+	/* Clearfix for row elements */
+	content: "";
+	display: table;
+	clear: both;
+}
+.footer-address {
+	/* Color for footer address text */
+	color: var(--text-color);
+}
+
+.social-link {
+	/* Display for social links */
+	display: block;
+}
+
+.social-link > svg {
+	/* Color for social link icons */
+	fill: var(--text-color);
+}
+.card-services .card-title {
+	/* Margin for card service titles */
+	margin: 0;
+}
+.card-services a {
+	/* Display, padding, background color for card service links */
+	display: block;
+	padding: 2rem;
+	background-color: var(--color-light-grey);
+}
+.card-services a:hover {
+	/* Hover color, background color, and text decoration for card service links */
+	color: var(--color-white);
+	background-color: var(--color-primary);
+	text-decoration: none;
+}
+.button {
+	/* Display, padding, border, font size, color, and text decoration for buttons */
+	display: var(--button-display);
+	padding: var(--button-padding);
+	border: var(--button-border);
+	font-size: var(--button-font-size);
+	color: var(--button-color);
+	text-decoration: var(--button-text-decoration);
+}
+.button:hover {
+	/* Hover color, text decoration, background, and transition for buttons */
+	color: var(--button-hover-color);
+	text-decoration: var(--button-hover-text-decoration);
+	background: var(--button-hover-background);
+	transition-duration: var(--transition-duration);
+	transition-property: color, background-color;
+}
+.card-testimonial {
+	/* Text alignment for testimonial cards */
+	text-align: center;
+}
+.card-testimonial .card-avatar {
+	/* Border radius, width, and height for avatar images */
+	border-radius: 50%;
+	width: 10rem;
+	height: 10rem;
+}
+
+.card-testimonial .card-quote cite {
+	/* Display, padding, and color for quote citations */
+	display: block;
+	padding-top: 1rem;
+	color: var(--color-primary);
+}
+.section-hero {
+	/* Background size for hero sections */
+	background-size: 90rem auto;
+}
+.section-hero .section-title {
+	/* Margin for hero section titles */
+	margin-bottom: 5rem;
+}
+.section-hero .section-inner {
+	/* Padding for hero section inner content */
+	padding: 10rem 40rem 2rem 0;
+}
+.header {
+	/* Padding for the header */
+	padding: var(--header-padding);
+}
+.header-logo {
+	/* Positioning for the header logo */
+	position: var(--header-logo-position);
+}
+.header-logo a {
+	/* Display, position, top, and left for the header logo link */
+	display: var(--header-logo-link-display);
+	position: var(--header-logo-link-position);
+	top: var(--header-logo-link-top);
+	left: var(--header-logo-link-left);
+}
+.card-work .card-outer {
+	/* Positioning and overflow for work card outer container */
+	position: relative;
+	overflow: hidden;
+}
+.card-work .card-image img {
+	/* Height, width, object fit, and vertical alignment for work card images */
+	height: 30rem;
+	width: 100%;
+	object-fit: cover;
+	vertical-align: bottom;
+}
+.card-work:hover .card-image {
+	/* Transform and transition for work card images on hover */
+	transform: scale(1.2);
+	transition: var(--transition-duration) var(--transition-cubic-bezier);
+}
+.card-work:hover .card-outer {
+	/* Transform and transition for work card outer container on hover */
+	transform: scale(0.95);
+}
+
+.card-work .card-inner {
+	/* Positioning, top, left, right, z-index, and transition for work card inner container */
+	position: absolute;
+	top: -0.1rem;
+	left: -0.1rem;
+	right: -0.1rem;
+	z-index: 1;
+	transition: var(--transition-duration) var(--transition-cubic-bezier);
+}
+.card-work:hover .card-inner {
+	/* Background color for work card inner container on hover */
+	background-color: rgba(0, 0, 0, 0.7);
+}
+.card-work .card-title {
+	/* Text alignment, margin, opacity, height, and position for work card titles */
+	text-align: center;
+	margin: 0;
+	opacity: 0;
+	height: 100%;
+	position: relative;
+}
+.card-work .card-title a {
+	/* Display, text decoration, and padding for work card title links */
+	display: block;
+	text-decoration: none;
+	padding-top: 45%;
+}
+.card-work .card-title a::after {
+	/* Pseudo-element for work card title hover effect */
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	content: "";
+}
+.card-work:hover .card-title {
+	/* Opacity for work card titles on hover */
+	opacity: 1;
+}
+.card-testimonial .card-quote {
+	/* Positioning for testimonial quotes */
+	position: relative;
+}
+.card-testimonial .card-quote::before {
+	/* Pseudo-element for testimonial quote hover effect */
+	content: "\201C";
+	position: absolute;
+	top: -4.5rem;
+	left: -1rem;
+	color: #efeded;
+	font-size: 10rem;
+	z-index: -1;
+}
+
+/**
+ * ! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css
+ *
+ * @format
+ */
+
+html[data-section-theme="“dark”"] {
+	line-height: 1.15;
+	-webkit-text-size-adjust: 100%;
+}
+body {
+	margin: 0;
+}
+main {
+	display: block;
+}
+h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+hr {
+	box-sizing: content-box;
+	height: 0;
+	overflow: visible;
+}
+pre {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+a {
+	background-color: transparent;
+}
+abbr[title] {
+	border-bottom: none;
+	text-decoration: underline;
+	text-decoration: underline dotted;
+}
+b,
+strong {
+	font-weight: bolder;
+}
+code,
+kbd,
+samp {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+small {
+	font-size: 80%;
+}
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sub {
+	bottom: -0.25em;
+}
+sup {
+	top: -0.5em;
+}
+img {
+	border-style: none;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+	font-family: inherit;
+	font-size: 100%;
+	line-height: 1.15;
+	margin: 0;
+}
+button,
+input {
+	overflow: visible;
+}
+button,
+select {
+	text-transform: none;
+}
+[type="button"],
+[type="reset"],
+[type="submit"],
+button {
+	-webkit-appearance: button;
+}
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner,
+button::-moz-focus-inner {
+	border-style: none;
+	padding: 0;
+}
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring,
+button:-moz-focusring {
+	outline: 1px dotted ButtonText;
+}
+fieldset {
+	padding: 0.35em 0.75em 0.625em;
+}
+legend {
+	box-sizing: border-box;
+	color: inherit;
+	display: table;
+	max-width: 100%;
+	padding: 0;
+	white-space: normal;
+}
+progress {
+	vertical-align: baseline;
+}
+textarea {
+	overflow: auto;
+}
+[type="checkbox"],
+[type="radio"] {
+	box-sizing: border-box;
+	padding: 0;
+}
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+	height: auto;
+}
+[type="search"] {
+	-webkit-appearance: textfield;
+	outline-offset: -2px;
+}
+[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+::-webkit-file-upload-button {
+	-webkit-appearance: button;
+	font: inherit;
+}
+details {
+	display: block;
+}
+summary {
+	display: list-item;
+}
+template {
+	display: none;
+}
+[hidden] {
+	display: none;
+}
+/*# sourceMappingURL=normalize.min.css.map */
